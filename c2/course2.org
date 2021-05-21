@@ -1,0 +1,12 @@
+#+TITLE: Coursera Algorithms: Course 2
+#+STARTUP: showall latexpreview inlineimages
+
+* TODOs
+- [ ] C2W2 quiz
+- [ ] C2 final
+- [ ] Implement Dijkstra's Alg using Heap
+- [ ] Clean up code and make github repo for /coursera-algorithms directory
+- [ ] Update algoReview.org with coursera course's version of HEAP-INSERT and EXTRACT-MAX (where HEAP-INSERT uses a BUBBLE-UP function, and EXTRACT-MAX uses a BUBBLE-DOWN). Clean up Heap section of algoReview.org to good synthesis of stuff in Cormen and coursera course.
+- [ ] Finish copying/numbering slide pdfs to w1-w4 dirs
+- [ ] Scan my quiz work and put images of pages in w1-w4 dirs
+

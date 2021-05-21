@@ -1,0 +1,17 @@
+#+TITLE: Coursera Algorithms: Course 3
+#+STARTUP: showall latexpreview inlineimages
+
+* TODOs
+- [-] C3W1 problem set
+  - [X] quiz (but retake to get question 1 correct)
+  - [ ] screenshot fully correct quiz
+  - [ ] scan and import notes
+- [X] C3W2 problem set
+  - [X] quiz
+  - [X] scan and import notes
+- [ ] C3W4 problem set
+  - [ ] quiz
+  - [ ] scan and import notes
+- [ ] Final
+
+
