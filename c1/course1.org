@@ -1,0 +1,6 @@
+#+TITLE: Coursera Algorithms: Course 1
+#+STARTUP: showall latexpreview inlineimages
+
+* TODOs
+** TODO Understand copied (non-string) version of karatsuba's alg
+** TODO Fix up my string version of karatsuba's alg
