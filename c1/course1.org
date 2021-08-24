@@ -4,3 +4,13 @@
 * TODOs
 ** TODO Understand copied (non-string) version of karatsuba's alg
 ** TODO Fix up my string version of karatsuba's alg
+** TODO review/understand indicator variable argument at end of section VII, prob review 1 video.
+** TODO understand independence of random variables in section VII, prob review 2 video.
+** TODO watch analysis of randomized select algorithm (part VIII, video 2)
+** TODO do prog assign 4
+** TODO Quizzes
+*** DONE q1
+*** DONE q2
+*** TODO q3
+*** DONE q4
+** TODO Final exam
