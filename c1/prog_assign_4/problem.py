@@ -1,8 +1,4 @@
-"""
-Min Cut
-"""
-
-#%%
+#%% Coursera c1 w4 assignment: Karger Min Cut algo
 from random import choice
 
 
