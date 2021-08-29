@@ -19,7 +19,7 @@ class Graph:
     # distance from a source node
     self.dist = [math.inf] * self.n
     # shortest path from a source node to each node
-    self.A = [1000000] * self.n
+    self.A = [1_000_000] * self.n
 
     # adjacency list of outgoing edges
     self.edges = [[] for _ in range(self.n)]
@@ -43,24 +43,24 @@ class Graph:
 
   def resetShortestPath(self):
     # set all shortest paths to default
-    self.A = [1000000] * self.n
+    self.A = [1_000_000] * self.n
 
   def printGraphConnections(self):
     """Prints graph connections with weights"""
     for i in range(self.n):
       out_edge_string = ", ".join(
-        ["{}({})".format(self.edges[i][j], self.weights[i][j])
-         for j in range(len(self.edges[i]))])
-      out_string = ("Node {} -> ".format(i) + out_edge_string)
+        [f"{self.edges[i][j]}({self.weights[i][j]})" for j in range(len(self.edges[i]))]
+      )
+      out_string = f"Node {i} -> {out_edge_string}"
       print(out_string)
 
   def printGraphAttributes(self):
     print("Graph attributes:")
     for i in range(self.n):
-      out_string = "Node {}: ".format(i)
-      out_string += "visited = {}".format(self.visited[i])
-      out_string += ", dist = {}".format(self.dist[i])
-      out_string += ", sp = {}".format(self.A[i])
+      out_string = (
+        f"Node {i}: visited = {self.visited[i]}, dist = {self.dist[i]}, "
+        f"sp = {self.A[i]}"
+      )
       print(out_string)
 
 
@@ -126,16 +126,3 @@ def calcShortestPath(g: Graph, source: int, debug=False):
             v_st, w_st = v, w
     X.add(w_st)
     g.A[w_st] = min_path_length
-
-
-
-
-
-
-
-
-
-
-
-
-

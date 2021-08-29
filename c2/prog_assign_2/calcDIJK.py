@@ -1,6 +1,5 @@
 # %%
 from graphUtils_dijkstra import *
-import sys
 
 
 # %% setup and analyze test graph
@@ -25,21 +24,19 @@ data = [(0, 1, 2), (2, 0, 3), (0, 3, 4), (3, 4, 2), (1, 4, 3)]
 run_test(data, num_nodes=5)
 
 # %% load data
-with open('/home/fineline/projects/coursera-algorithms/c2/prog_assign_2/dijkstraData'
-          '.txt', 'r') as f:
+with open("./c2/prog_assign_2/dijkstraData" ".txt", "r") as f:
   dir_edge_list, dir_edge_weight_list = [], []
   for line in f.readlines():
-    if line.strip() != '':
-      line_vals = line.strip().split('\t')
-      src_node, dest_vals = int(line_vals[0]) - 1, line_vals[1:]
-      dir_edges, dir_weights = [], []  # edges and weights for current source node
-      for dest_val in dest_vals:  # handle each dest node and weight
-        dest_val_split = dest_val.split(',')
-        dest_node, dest_weight = int(dest_val_split[0]) - 1, int(dest_val_split[1])
-        dir_edges.append(dest_node)
-        dir_weights.append(dest_weight)
-      dir_edge_list.append(dir_edges)
-      dir_edge_weight_list.append(dir_weights)
+    line_vals = line.strip().split("\t")
+    src_node, dest_vals = int(line_vals[0]) - 1, line_vals[1:]
+    dir_edges, dir_weights = [], []  # edges and weights for current source node
+    for dest_val in dest_vals:  # handle each dest node and weight
+      dest_val_split = dest_val.split(",")
+      dest_node, dest_weight = int(dest_val_split[0]) - 1, int(dest_val_split[1])
+      dir_edges.append(dest_node)
+      dir_weights.append(dest_weight)
+    dir_edge_list.append(dir_edges)
+    dir_edge_weight_list.append(dir_weights)
 
 # %% Construct graph
 gg = Graph(200)
@@ -55,4 +52,3 @@ calcShortestPath(gg, source=0)
 test_nodes = [i - 1 for i in [7, 37, 59, 82, 99, 115, 133, 165, 188, 197]]
 answer = [gg.A[i] for i in test_nodes]
 print(answer)
-
