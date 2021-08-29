@@ -69,8 +69,7 @@ print(running_median(test_data_odd))
 
 
 #%% Import data
-with open('/home/fineline/projects/coursera-algorithms/c2/prog_assign_3/Median.txt',
-          'r') as f:
+with open("./c2/prog_assign_3/Median.txt", "r") as f:
   data = [int(line.strip()) for line in f]
 
 medians = running_median(data)

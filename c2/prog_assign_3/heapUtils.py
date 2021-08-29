@@ -2,6 +2,7 @@
 
 from collections.abc import Sequence
 
+
 class Heap(Sequence):
   def __init__(self):
     self.L = []
@@ -31,9 +32,7 @@ class Heap(Sequence):
     return None if i == 0 else (i - 1) // 2
 
   def swap(self, i: int, j: int):
-    temp = self.L[i]
-    self.L[i] = self.L[j]
-    self.L[j] = temp
+    self.L[i], self.L[j] = self.L[j], self.L[i]
 
 
 class MaxHeap(Heap):
@@ -49,8 +48,7 @@ class MaxHeap(Heap):
     if len(self.L) == 0:
       return None
     max_val = self.L[0]
-    self.L[0] = self.L[-1]
-    self.L.pop()
+    self.L[0] = self.L.pop()
     self.max_heapify(0)
     return max_val
 
@@ -89,8 +87,7 @@ class MinHeap(Heap):
     if len(self.L) == 0:
       return None
     min_val = self.L[0]
-    self.L[0] = self.L[-1]
-    self.L.pop()
+    self.L[0] = self.L.pop()
     self.min_heapify(0)
     return min_val
 
@@ -126,28 +123,28 @@ def main():
     for item in data:
       max_heap.insert(item)
 
-    print('')
-    print('max heap after construction:')
+    print("")
+    print("max heap after construction:")
     print(max_heap)
-    print('')
+    print("")
 
     for _ in range(len(data)):
-      print('Max Extaction: {},\t heap: {}'.format(max_heap.extract_max(), max_heap))
+      print(f"Max Extaction: {max_heap.extract_max()},\t heap: {max_heap}")
 
   # no duplicates
   max_test_data_1 = [1, 4, 5, 9, 2, 10, 15]
-  print('')
-  print('-------------------------------------------')
-  print('Testing max heap on data without duplicates')
-  print('Input: = {}'.format(max_test_data_1))
+  print("")
+  print("-------------------------------------------")
+  print("Testing max heap on data without duplicates")
+  print(f"Input: = {max_test_data_1}")
   test_max_heap(max_test_data_1)
 
   # with duplicates
   max_test_data_2 = [1, 1, 4, 5, 2, 2, 10]
-  print('')
-  print('-------------------------------------------')
-  print('Testing max heap on data WITH duplicates')
-  print('Input: = {}'.format(max_test_data_2))
+  print("")
+  print("-------------------------------------------")
+  print("Testing max heap on data WITH duplicates")
+  print(f"Input: = {max_test_data_2}")
   test_max_heap(max_test_data_2)
 
   # %% test min heap functionality
@@ -157,30 +154,30 @@ def main():
     for item in data:
       min_heap.insert(item)
 
-    print('')
-    print('min heap after construction:')
+    print("")
+    print("min heap after construction:")
     print(min_heap)
-    print('')
+    print("")
 
     for _ in range(len(data)):
-      print('Min Extaction: {},\t heap: {}'.format(min_heap.extract_min(), min_heap))
+      print(f"Min Extaction: {min_heap.extract_min()},\t heap: {min_heap}")
 
   # no duplicates
   min_test_data_1 = [1, 4, 5, 9, 2, 10, 15]
-  print('')
-  print('-------------------------------------------')
-  print('Testing min heap on data without duplicates')
-  print('Input: = {}'.format(min_test_data_1))
+  print("")
+  print("-------------------------------------------")
+  print("Testing min heap on data without duplicates")
+  print(f"Input: = {min_test_data_1}")
   test_min_heap(min_test_data_1)
 
   # with duplicates
   min_test_data_2 = [1, 1, 4, 5, 2, 2, 10]
-  print('')
-  print('-------------------------------------------')
-  print('Testing min heap on data WITH duplicates')
-  print('Input: = {}'.format(min_test_data_2))
+  print("")
+  print("-------------------------------------------")
+  print("Testing min heap on data WITH duplicates")
+  print(f"Input: = {min_test_data_2}")
   test_min_heap(min_test_data_2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
   main()
