@@ -1,4 +1,4 @@
-# %%
+#%% Coursera c2 w2 assignment: Dijkstra's shortest-path algorithm
 from graphUtils_dijkstra import *
 
 
