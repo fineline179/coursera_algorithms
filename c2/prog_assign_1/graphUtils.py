@@ -1,4 +1,3 @@
-# blah
 import math
 from collections import deque
 

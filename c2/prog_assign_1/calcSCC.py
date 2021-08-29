@@ -34,14 +34,12 @@ run_test()
 
 
 #%% main data
-with open(
-  "/home/fineline/projects/coursera-algorithms/c2/prog_assign_1/SCC.txt", "r"
-) as f:
-  dir_edge_list = []
-  for line in f.readlines():
-    if line.strip() != "":
-      # subtract one from values to make nodes index from 0
-      dir_edge_list.append(tuple([int(x) - 1 for x in line.strip().split(" ")]))
+with open("./c2/prog_assign_1/SCC.txt", "r") as f:
+  # input data: list with one element per input file line. each element is tuple of
+  # numbers on line, with one subtracted from each number (for 0-based node indexing)
+  dir_edge_list = [
+    tuple([int(x) - 1 for x in line.strip().split(" ")]) for line in f.readlines()
+  ]
 
 
 #%%
@@ -53,13 +51,13 @@ for edge in dir_edge_list:
 #%%
 calcSCC(gg, use_stack=True)
 
+
 #%% count number of elements in each leader group
-scc_sizes_dict = {}
+from collections import defaultdict
+
+scc_sizes_dict = defaultdict(int)
 for i in range(gg.n):
-  if gg.leader[i] not in scc_sizes_dict:
-    scc_sizes_dict[gg.leader[i]] = 1
-  else:
-    scc_sizes_dict[gg.leader[i]] += 1
+  scc_sizes_dict[gg.leader[i]] += 1
 
 scc_sizes_sorted = sorted(
   scc_sizes_dict.items(), key=lambda item: item[1], reverse=True
@@ -68,3 +66,10 @@ scc_sizes_sorted = sorted(
 # print top 5 largest leader groups
 for i in range(5):
   print(scc_sizes_sorted[i])
+
+## Answer
+# (615985, 434821)
+# (617402, 968)
+# (798410, 459)
+# (367066, 313)
+# (709990, 211)

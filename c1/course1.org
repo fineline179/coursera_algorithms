@@ -7,9 +7,4 @@
 ** TODO review/understand indicator variable argument at end of section VII, prob review 1 video.
 ** TODO understand independence of random variables in section VII, prob review 2 video.
 ** TODO watch analysis of randomized select algorithm (part VIII, video 2)
-** DONE Quizzes
-*** DONE q1
-*** DONE q2
-*** DONE q3
-*** DONE q4
-** TODO Final exam
+** TODO Add screenshot of completed final exam to directory
