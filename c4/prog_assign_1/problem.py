@@ -1,4 +1,5 @@
-#%%
+#%% Coursera c4 w1 assignment: All-pairs shortest paths
+
 from graphUtils_APSP import *
 
 

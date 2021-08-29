@@ -1,4 +1,4 @@
-# Coursera c4 w2 assignment: Travelling salesman
+# Coursera c4 w2 assignment: Traveling salesman
 
 #%%
 from graphUtils_TS import *

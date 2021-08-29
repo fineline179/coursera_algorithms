@@ -1,4 +1,6 @@
-#%% Import data
+#%% Coursera c2 w4 assignment: 2-SUM
+
+# Import data
 with open('/home/fineline/projects/coursera-algorithms/c2/prog_assign_4/2sum_data.txt',
           'r') as f:
   data = [int(line.strip()) for line in f]

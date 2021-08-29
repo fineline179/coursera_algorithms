@@ -1,4 +1,5 @@
-#%%
+#%% Coursera c3 w1 assignment, problems 1 and 2: Completion Times
+
 from collections import namedtuple
 from itertools import accumulate
 

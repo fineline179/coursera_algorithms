@@ -1,4 +1,5 @@
-#%%
+#%% Coursera c3 w2 assignment, problem 1: K-Clustering
+
 from graphUtils_clustering import *
 
 

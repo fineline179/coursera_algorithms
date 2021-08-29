@@ -1,4 +1,5 @@
-#%%
+#%% Coursera c3 w1 assignment, problem 3: Minimum Spanning Tree
+
 from graphUtils_mst_prim import *
 
 

@@ -57,7 +57,7 @@ def quicksort(A, start, end, pivot_type: str = "random"):
       val_ind_pairs = [(A[start], start), (A[med_index], med_index), (A[end], end)]
       p = sorted(val_ind_pairs)[1][1]
 
-  # put pivot element at left of array, for passing to partition
+  # put pivot element at beginning of array, for passing to partition
   if p != start:
     A[start], A[p] = A[p], A[start]
 

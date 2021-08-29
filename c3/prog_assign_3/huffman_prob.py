@@ -1,3 +1,5 @@
+#%% Coursera c3 w3 assignment, problems 1 and 2: Huffman Coding
+
 from heapUtils_huffman import *
 
 

@@ -1,4 +1,5 @@
-#%%
+#%% Coursera c3 w4 assignment: Knapsack
+
 from collections import namedtuple
 import numpy as np
 

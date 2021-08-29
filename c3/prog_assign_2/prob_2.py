@@ -1,4 +1,5 @@
-# %%
+#%% Coursera c3 w2 assignment, problem 2: LARGE K-Clustering
+
 from graphUtils_big_clustering import *
 from itertools import combinations
 

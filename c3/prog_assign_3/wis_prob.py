@@ -1,4 +1,5 @@
-#%%
+#%% Coursera c3 w3 assignment, problem 3: maximum-weight independent set
+
 from collections import deque
 
 

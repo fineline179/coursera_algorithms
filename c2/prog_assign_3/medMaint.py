@@ -1,4 +1,4 @@
-#%%
+#%% Coursera c2 w3 assignment: Median Maintenance
 from heapUtils import MaxHeap, MinHeap
 
 
