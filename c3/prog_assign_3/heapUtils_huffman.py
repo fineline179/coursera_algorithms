@@ -1,6 +1,7 @@
 from collections.abc import Sequence
 from collections import namedtuple
 
+
 class TreeNode:
   def __init__(self, x):
     self.value = x
@@ -9,7 +10,8 @@ class TreeNode:
     self.parent = None
 
 
-HeapNode = namedtuple('HeapNode', ['key', 'val'])
+HeapNode = namedtuple("HeapNode", ["key", "val"])
+
 
 class Heap(Sequence):
   def __init__(self):
@@ -40,9 +42,7 @@ class Heap(Sequence):
     return None if i == 0 else (i - 1) // 2
 
   def swap(self, i: int, j: int):
-    temp = self.L[i]
-    self.L[i] = self.L[j]
-    self.L[j] = temp
+    self.L[i], self.L[j] = self.L[j], self.L[i]
 
 
 class MinHeap(Heap):
@@ -80,7 +80,8 @@ class MinHeap(Heap):
     """Insert item into heap"""
     self.L.append(item)
     item_ind = len(self.L) - 1
-    while (self.parent(item_ind) is not None and
-           self.L[self.parent(item_ind)].key > item.key):
+    while (
+      self.parent(item_ind) is not None and self.L[self.parent(item_ind)].key > item.key
+    ):
       self.swap(item_ind, self.parent(item_ind))
       item_ind = self.parent(item_ind)

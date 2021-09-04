@@ -19,7 +19,7 @@ def create_huffman_tree(symb_heap: MinHeap):
   while len(symb_heap) > 2:
     a = symb_heap.extract_min()
     b = symb_heap.extract_min()
-    a_b = TreeNode('_'.join([a.val.value, b.val.value]))
+    a_b = TreeNode("_".join([a.val.value, b.val.value]))
     a_b.left, a_b.right = b.val, a.val
     # update parents..
     a_b.left.parent, a_b.right.parent = a_b, a_b
@@ -29,7 +29,7 @@ def create_huffman_tree(symb_heap: MinHeap):
   # root of huffman tree
   a = symb_heap.extract_min()
   b = symb_heap.extract_min()
-  huff_tree = TreeNode('_'.join([a.val.value, b.val.value]))
+  huff_tree = TreeNode("_".join([a.val.value, b.val.value]))
   huff_tree.left, huff_tree.right = b.val, a.val
   huff_tree.left.parent, huff_tree.right.parent = huff_tree, huff_tree
 
@@ -44,18 +44,18 @@ def create_encoding(huff_tree: TreeNode, print_encoding=False):
     if node.left is None and node.right is None:
       code_dict[node.value] = code_string
       if print_encoding:
-        print('symbol: {}, code: {}'.format(node.value, code_string))
+        print(f"symbol: {node.value}, code: {code_string}")
     else:
-      tree_walk(node.left, code_string + '0', code_dict)
-      tree_walk(node.right, code_string + '1', code_dict)
+      tree_walk(node.left, code_string + "0", code_dict)
+      tree_walk(node.right, code_string + "1", code_dict)
 
-  tree_walk(huff_tree, '', code_dict)
+  tree_walk(huff_tree, "", code_dict)
 
   return code_dict
 
 
 #%% test data
-test_symbol_weight_list = [('a', 60), ('b', 25), ('c', 10), ('d', 5)]
+test_symbol_weight_list = [("a", 60), ("b", 25), ("c", 10), ("d", 5)]
 
 test_symb_heap = create_leafnode_heap(test_symbol_weight_list)
 test_huff_tree = create_huffman_tree(test_symb_heap)
@@ -63,8 +63,7 @@ test_code_dict = create_encoding(test_huff_tree)
 
 
 # %% main data
-with open('/home/fineline/projects/coursera-algorithms/c3/prog_assign_3/huffman.txt',
-          'r') as f:
+with open("./c3/prog_assign_3/huffman.txt", "r") as f:
   num_symbols = int(f.readline().strip())
   symbol_weight_list = []
   for i, line in enumerate(f.readlines(), start=1):
@@ -74,7 +73,6 @@ symb_heap = create_leafnode_heap(symbol_weight_list)
 huff_tree = create_huffman_tree(symb_heap)
 code_dict = create_encoding(huff_tree)
 code_lengths = [len(value) for (key, value) in code_dict.items()]
-print('max code len = {}, min code len = {}'.format(max(code_lengths),
-                                                    min(code_lengths)))
+print(f"max code len = {max(code_lengths)}, min code len = {min(code_lengths)}")
 
 # max = 19, min = 9

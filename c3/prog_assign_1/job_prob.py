@@ -4,13 +4,13 @@ from collections import namedtuple
 from itertools import accumulate
 
 #%% load data
-WeightLength = namedtuple('WeightLength', ['weight', 'length'])
+WeightLength = namedtuple("WeightLength", ["weight", "length"])
 
-with open('/home/fineline/projects/coursera-algorithms/c3/prog_assign_1/jobs.txt',
-          'r') as f:
+with open("./c3/prog_assign_1/jobs.txt", "r") as f:
   num_jobs = int(f.readline().strip())
-  wl_list = [WeightLength(*[int(x) for x in line.strip().split(' ')])
-             for line in f.readlines()]
+  wl_list = [
+    WeightLength(*[int(x) for x in line.strip().split(" ")]) for line in f.readlines()
+  ]
 
 
 #%% Problem 1

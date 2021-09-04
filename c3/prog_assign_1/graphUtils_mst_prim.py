@@ -42,17 +42,15 @@ class Graph:
     """Prints graph connections with weights"""
     for i in range(self.n):
       out_edge_string = ", ".join(
-        ["{}({})".format(self.edges[i][j], self.weights[i][j])
-         for j in range(len(self.edges[i]))])
-      out_string = ("Node {} -> ".format(i) + out_edge_string)
+        [f"{e}({w})" for e, w in zip(self.edges[i], self.weights[i])]
+      )
+      out_string = f"Node {i} -> " + out_edge_string
       print(out_string)
 
   def printGraphAttributes(self):
     print("Graph attributes:")
     for i in range(self.n):
-      out_string = "Node {}: ".format(i)
-      out_string += "visited = {}".format(self.visited[i])
-      out_string += ", dist = {}".format(self.dist[i])
+      out_string = f"Node {i}: visited = {self.visited[i]}, dist = {self.dist[i]}"
       print(out_string)
 
 
@@ -86,13 +84,3 @@ def calcMSTPrim(g: Graph, debug=False):
     T.append(tuple([v_st, w_st, min_edge_cost]))
 
   return T
-
-
-
-
-
-
-
-
-
-

@@ -48,7 +48,8 @@ class MaxHeap(Heap):
     if len(self.L) == 0:
       return None
     max_val = self.L[0]
-    self.L[0] = self.L.pop()
+    self.L[0] = self.L[-1]
+    self.L.pop()
     self.max_heapify(0)
     return max_val
 
@@ -87,7 +88,8 @@ class MinHeap(Heap):
     if len(self.L) == 0:
       return None
     min_val = self.L[0]
-    self.L[0] = self.L.pop()
+    self.L[0] = self.L[-1]
+    self.L.pop()
     self.min_heapify(0)
     return min_val
 

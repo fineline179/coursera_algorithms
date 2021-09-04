@@ -10,7 +10,7 @@ def bin_flip_indices(in_string, indices):
   in_list = [int(c) for c in in_string]
   for ind in indices:
     in_list[ind] = 1 if in_list[ind] == 0 else 0
-  return ''.join(map(str, in_list))
+  return "".join(map(str, in_list))
 
 
 def construct_edge_list(node_set, dec_rep=True, print_debug=False):
@@ -36,7 +36,7 @@ def construct_edge_list(node_set, dec_rep=True, print_debug=False):
           edge_list.append((curr_node, perm))
 
     if print_debug and node_counter % 100 == 0:
-      print('{}/{}'.format(node_counter, len(node_set)))
+      print("{}/{}".format(node_counter, len(node_set)))
     node_counter += 1
 
   return edge_list
@@ -55,12 +55,17 @@ def calc_components(g: GraphKV):
 
 
 # %% test data
-test_node_list = ['0000 0000 0000 0000 0000 0000', '0000 0000 0000 0000 0000 0001',
-                  '1000 0000 0000 0000 0000 0000', '1000 0000 0000 0000 0000 0001',
-                  '1000 0000 0000 0000 0000 0011', '1111 1111 1111 1111 1111 1111',
-                  '1111 1111 1111 1111 1111 1100']
+test_node_list = [
+  "0000 0000 0000 0000 0000 0000",
+  "0000 0000 0000 0000 0000 0001",
+  "1000 0000 0000 0000 0000 0000",
+  "1000 0000 0000 0000 0000 0001",
+  "1000 0000 0000 0000 0000 0011",
+  "1111 1111 1111 1111 1111 1111",
+  "1111 1111 1111 1111 1111 1100",
+]
 
-test_node_set = {el.replace(' ', '') for el in test_node_list}
+test_node_set = {el.replace(" ", "") for el in test_node_list}
 
 # construct edges
 test_edge_list = construct_edge_list(test_node_set, dec_rep=True)
@@ -70,15 +75,14 @@ gg_test = GraphKV()
 for edge in test_edge_list:
   gg_test.addUndirEdge(*edge)
 
-print('number of components: {}'.format(calc_components(gg_test)))
+print("number of components: {}".format(calc_components(gg_test)))
 
 
 # %% main data
-with open('/home/fineline/projects/coursera-algorithms/c3/prog_assign_2'
-          '/clustering_big.txt', 'r') as f:
-  num_nodes = int(f.readline().strip().split(' ')[0])
+with open("./c3/prog_assign_2/clustering_big.txt", "r") as f:
+  num_nodes = int(f.readline().strip().split(" ")[0])
   # note: uses replace to remove spaces from each input line
-  node_list = [line.strip().replace(' ', '') for line in f.readlines()]
+  node_list = [line.strip().replace(" ", "") for line in f.readlines()]
 
 # remove duplicate nodes
 node_set = set(node_list)
@@ -96,7 +100,7 @@ for edge in edge_list:
   edge_add_counter += 1
 
 #%%
-print('number of components: {}'.format(calc_components(gg)))
+print("number of components: {}".format(calc_components(gg)))
 
 # 619 components from added edges
 # len(node_set) - len(gg.visited) = 198788 - 193289 = 5499 nodes not added via edges

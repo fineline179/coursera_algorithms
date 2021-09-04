@@ -17,16 +17,16 @@ def run_test():
 
   print(gg_mst)
 
+
 run_test()
 
 
 #%% main data
-with open('/home/fineline/projects/coursera-algorithms/c3/prog_assign_1/edges.txt',
-          'r') as f:
-  num_nodes, num_edges = tuple([int(x) for x in f.readline().strip().split(' ')])
+with open("./c3/prog_assign_1/edges.txt", "r") as f:
+  num_nodes, num_edges = tuple([int(x) for x in f.readline().strip().split(" ")])
   edge_weight_list = []
   for line in f.readlines():
-    data = [int(x) for x in line.strip().split(' ')]
+    data = [int(x) for x in line.strip().split(" ")]
     edge_weight_list.append(tuple([data[0] - 1, data[1] - 1, data[2]]))
 
 
