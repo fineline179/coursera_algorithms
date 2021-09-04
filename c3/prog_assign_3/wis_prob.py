@@ -40,14 +40,14 @@ def calculate_mwis(vert_weights: deque):
   mwis = []
   i = len(vert_weights)
   while i > 1:
-    w_i = vert_weights[i-1]
-    if A[i-1] > A[i-2] + w_i:
+    w_i = vert_weights[i - 1]
+    if A[i - 1] > A[i - 2] + w_i:
       i -= 1
     else:
-      mwis.append(i-1)
+      mwis.append(i - 1)
       i -= 2
   if i == 1:
-    mwis.append(i-1)
+    mwis.append(i - 1)
 
   mwis.reverse()  # reverse list to put in same order as input values
   return mwis
@@ -69,22 +69,21 @@ test_mw_vals = [1, 4, 6, 10, 10, 6]
 #%% test mw computation
 for t, act_mw in zip(tests, test_mw_vals):
   calc_mw = calculate_mw(t.copy())
-  print('data = {}, mw calculated = {}, mw correct = {}, test pass = {}'
-        .format(list(t), calc_mw, act_mw, calc_mw == act_mw))
-
+  print(
+    f"data = {list(t)}, mw calculated = {calc_mw}, mw correct = {act_mw}, test pass ="
+    f" {calc_mw == act_mw}"
+  )
 
 #%% test mwis computation
-print('')
+print("")
 test_mwis_vals = [[0], [0, 2], [1, 3], [0, 2], [0, 2], [1]]
 for t, act_mwis in zip(tests, test_mwis_vals):
   calc_mwis = calculate_mwis(t.copy())
-  print('data = {}, mw calculated = {}, mw correct = {}'
-        .format(list(t), calc_mwis, act_mwis))
+  print(f"data = {list(t)}, mw calculated = {calc_mwis}, mw correct = {act_mwis}")
 
 
 #%% main data
-with open('/home/fineline/projects/coursera-algorithms/c3/prog_assign_3/mwis.txt',
-          'r') as f:
+with open("./c3/prog_assign_3/mwis.txt", "r") as f:
   num_vertices = int(f.readline().strip())
   vertex_weights = deque()
   for line in f.readlines():
@@ -97,12 +96,12 @@ mwis = calculate_mwis(vertex_weights)
 # subtract one from supplied vertex indices to use 0-based indexing
 test_indices = [ind - 1 for ind in [1, 2, 3, 4, 17, 117, 517, 997]]
 
+
 def is_in(ind):
   return 1 if ind in mwis else 0
 
+
 answer = [is_in(ind) for ind in test_indices]
+print(answer)
 
 # answer = 10100110
-
-
-

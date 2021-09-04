@@ -6,9 +6,6 @@
   - [X] quiz
   - [X] screenshot fully correct quiz
   - [ ] FIND, scan and import notes
-- [X] C3W2 problem set
-  - [X] quiz
-  - [X] scan and import notes
 - [ ] C3W4 problem set
   - [ ] quiz
   - [ ] scan and import notes

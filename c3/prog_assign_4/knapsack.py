@@ -3,12 +3,13 @@
 from collections import namedtuple
 import numpy as np
 
-Item = namedtuple('Item', ['value', 'weight'])
+Item = namedtuple("Item", ["value", "weight"])
 
 
 #%%
-def calculate_optimal_knapsack_value(item_list, knap_size,
-                                     return_subprob_array: bool = False):
+def calculate_opt_knapsack_val(
+  item_list, knap_size, return_subprob_array: bool = False
+):
   """Given list of (value, weight) objects and knapsack size, calculate optimal
   knapsack value
 
@@ -34,7 +35,7 @@ def calculate_optimal_knapsack_value(item_list, knap_size,
 
 
 # TODO: speed this up by eliminating copies
-def calculate_optimal_knapsack_value_terse(item_list, knap_size, debug: bool = False):
+def calculate_opt_knapsack_val_terse(item_list, knap_size, debug: bool = False):
   """Given list of (value, weight) objects and knapsack size, calculate optimal
   knapsack value
 
@@ -52,7 +53,7 @@ def calculate_optimal_knapsack_value_terse(item_list, knap_size, debug: bool = F
   A = np.zeros((2, W + 1))
   for i in range(1, n + 1):
     if debug and i % 10 == 0:
-      print('{}/{}'.format(i, n))
+      print(f"{i}/{n}")
     A[0, :] = A[1, :]
     v_i, w_i = item_list[i - 1].value, item_list[i - 1].weight
     for x in range(W + 1):
@@ -65,7 +66,7 @@ def calculate_optimal_knapsack_value_terse(item_list, knap_size, debug: bool = F
 
 
 # TODO: finish
-def calculate_optimal_knapsack_items(item_list, knap_size):
+def calculate_opt_knapsack_items(item_list, knap_size):
   """Given list of (value, weight) objects and knapsack size, calculate indices of
   items in optimal knapsack
 
@@ -76,9 +77,7 @@ def calculate_optimal_knapsack_items(item_list, knap_size):
   Returns:
     list of indices of items in input list that comprise optimal knapsack
   """
-  A = calculate_optimal_knapsack_value(item_list, knap_size,
-                                       return_subprob_array=True)[1]
-
+  A = calculate_opt_knapsack_val(item_list, knap_size, return_subprob_array=True)[1]
 
 
 #%% test data
@@ -86,32 +85,30 @@ knap_size_test = 6
 # optimal: value = 8, solution indices = [2, 3]
 item_list_test = [Item(*el) for el in [(3, 4), (2, 3), (4, 2), (4, 3)]]
 
-opt_val_test, A_test = calculate_optimal_knapsack_value(item_list_test,
-                                                        knap_size_test, True)
+opt_val_test, A_test = calculate_opt_knapsack_val(item_list_test, knap_size_test, True)
+print(opt_val_test)
+print(A_test)
 
-opt_val_test_terse = calculate_optimal_knapsack_value_terse(item_list_test,
-                                                            knap_size_test)
+opt_val_test_terse = calculate_opt_knapsack_val_terse(item_list_test, knap_size_test)
+print(opt_val_test_terse)
 
 
 # %% problem 1: main data
-with open('/home/fineline/projects/coursera-algorithms/c3/prog_assign_4/'
-          'knapsack1.txt', 'r') as f:
-  knap_size, num_items = [int(x) for x in f.readline().strip().split(' ')]
-  item_list = [Item(*map(int, line.strip().split(' '))) for line in f.readlines()]
+with open("./c3/prog_assign_4/knapsack1.txt", "r") as f:
+  knap_size, num_items = [int(x) for x in f.readline().strip().split(" ")]
+  item_list = [Item(*map(int, line.strip().split(" "))) for line in f.readlines()]
 
-opt_val = calculate_optimal_knapsack_value(item_list, knap_size)
-opt_val_terse = calculate_optimal_knapsack_value_terse(item_list, knap_size)
+opt_val = calculate_opt_knapsack_val(item_list, knap_size)
+opt_val_terse = calculate_opt_knapsack_val_terse(item_list, knap_size)
 
 # optimum value = 2493893
 
 
 # %% problem 2: main data
-with open('/home/fineline/projects/coursera-algorithms/c3/prog_assign_4/knapsack_big'
-          '.txt', 'r') as f:
-  knap_size_big, num_items_big = [int(x) for x in f.readline().strip().split(' ')]
-  item_list_big = [Item(*map(int, line.strip().split(' '))) for line in f.readlines()]
+with open("./c3/prog_assign_4/knapsack_big.txt", "r") as f:
+  knap_size_big, num_items_big = [int(x) for x in f.readline().strip().split(" ")]
+  item_list_big = [Item(*map(int, line.strip().split(" "))) for line in f.readlines()]
 
-opt_val_big = calculate_optimal_knapsack_value_terse(item_list_big, knap_size_big,
-                                                     debug=True)
+opt_val_big = calculate_opt_knapsack_val_terse(item_list_big, knap_size_big, debug=True)
 
 # optimum value = 4243395
