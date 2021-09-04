@@ -52,17 +52,15 @@ class Graph:
     """Prints graph connections with weights"""
     for i in range(self.n):
       out_edge_string = ", ".join(
-        ["{}({})".format(self.edges[i][j], self.weights[i][j])
-         for j in range(len(self.edges[i]))])
-      out_string = ("Node {} -> ".format(i) + out_edge_string)
+        [f"{e}({w})" for e, w in zip(self.edges[i], self.weights[i])]
+      )
+      out_string = f"Node {i} -> " + out_edge_string
       print(out_string)
 
   def printGraphAttributes(self):
     print("Graph attributes:")
     for i in range(self.n):
-      out_string = "Node {}: ".format(i)
-      out_string += "visited = {}".format(self.visited[i])
-      out_string += ", dist = {}".format(self.dist[i])
+      out_string = f"Node {i}: visited = {self.visited[i]}, dist = {self.dist[i]}"
       print(out_string)
 
 
@@ -139,7 +137,9 @@ def calcSP_BF(g: Graph, source: int, debug=False):
       # first option
       opt1 = A[i - 1, v]
       # second option: iterate over all nodes w connected to node v
-      opt2_vals = [A[i-1, w] + c_wv for w, c_wv in zip(g.in_edges[v], g.in_weights[v])]
+      opt2_vals = [
+        A[i - 1, w] + c_wv for w, c_wv in zip(g.in_edges[v], g.in_weights[v])
+      ]
       A[i, v] = np.min([opt1] + opt2_vals)
 
   # last row is check for neg cycles. second to last is list of shortest paths
@@ -148,19 +148,3 @@ def calcSP_BF(g: Graph, source: int, debug=False):
   result_valid = np.all(A[-2, :] == A[-1, :])
 
   return path_lengths, result_valid
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -6,8 +6,15 @@ from graphUtils_APSP import *
 #%% analyze test graph using Floyd-Warshall
 def run_test_FW():
   # graph in Johnson's algo slides
-  edge_weight_list = [(0, 1, -2), (1, 2, -1), (2, 0, 4), (2, 3, 2), (2, 4, -3),
-                      (5, 3, 1), (5, 4, -4)]
+  edge_weight_list = [
+    (0, 1, -2),
+    (1, 2, -1),
+    (2, 0, 4),
+    (2, 3, 2),
+    (2, 4, -3),
+    (5, 3, 1),
+    (5, 4, -4),
+  ]
 
   gg = Graph(6)
   for edge_and_weight in edge_weight_list:
@@ -18,6 +25,7 @@ def run_test_FW():
   shortest_paths, valid_comp = calc_APSP_FW(gg)
   print(shortest_paths)
   print(valid_comp)
+
 
 run_test_FW()
 
@@ -36,9 +44,10 @@ def run_test_BF():
   ggBF.printGraphConnections()
 
   shortest_paths, result_valid = calcSP_BF(ggBF, source=0, debug=True)
-  print('\n')
+  print("\n")
   print(shortest_paths)
   print(result_valid)
+
 
 run_test_BF()
 
@@ -48,12 +57,25 @@ run_test_BF()
 def run_test_BF_aux(neg_cycle=False):
   # graph in Johnson's algo slides
   if not neg_cycle:
-    edge_weight_list = [(0, 1, -2), (1, 2, -1), (2, 0, 4), (2, 3, 2), (2, 4, -3),
-                        (5, 3, 1), (5, 4, -4)]
+    edge_weight_list = [
+      (0, 1, -2),
+      (1, 2, -1),
+      (2, 0, 4),
+      (2, 3, 2),
+      (2, 4, -3),
+      (5, 3, 1),
+      (5, 4, -4),
+    ]
   else:  # change 1->3 edge from -1 to -3 to make the 0->1->2->0 cycle negative
-    edge_weight_list = [(0, 1, -2), (1, 2, -3), (2, 0, 4), (2, 3, 2), (2, 4, -3),
-                        (5, 3, 1), (5, 4, -4)]
-
+    edge_weight_list = [
+      (0, 1, -2),
+      (1, 2, -3),
+      (2, 0, 4),
+      (2, 3, 2),
+      (2, 4, -3),
+      (5, 3, 1),
+      (5, 4, -4),
+    ]
 
   # graph with 6 nodes for above data, plus extra aux source node
   ggBF = Graph(7)
@@ -61,7 +83,7 @@ def run_test_BF_aux(neg_cycle=False):
   for edge_and_weight in edge_weight_list:
     ggBF.addDirEdge(*edge_and_weight)
 
-  print('connections before adding aux node:')
+  print("connections before adding aux node:")
   ggBF.printGraphConnections()
 
   # add aux source node and 0-weighted edges from aux source node to all other nodes
@@ -69,25 +91,25 @@ def run_test_BF_aux(neg_cycle=False):
   for aux_source_edge_weight in aux_source_edge_weight_list:
     ggBF.addDirEdge(*aux_source_edge_weight)
 
-  print('\n')
-  print('connections after adding aux node:')
+  print("\n")
+  print("connections after adding aux node:")
   ggBF.printGraphConnections()
 
   shortest_paths, result_valid = calcSP_BF(ggBF, source=6, debug=True)
-  print('\n')
+  print("\n")
   print(shortest_paths)
   print(result_valid)
+
 
 run_test_BF_aux(neg_cycle=True)
 
 
 #%% main data
-with open('/home/fineline/projects/coursera-algorithms/c4/prog_assign_1/g3.txt',
-          'r') as f:
-  num_nodes, num_edges = tuple([int(x) for x in f.readline().strip().split(' ')])
+with open("./c4/prog_assign_1/g3.txt", "r") as f:
+  num_nodes, num_edges = tuple([int(x) for x in f.readline().strip().split(" ")])
   edge_weight_list = []
   for line in f.readlines():
-    data = [int(x) for x in line.strip().split(' ')]
+    data = [int(x) for x in line.strip().split(" ")]
     edge_weight_list.append(tuple([data[0] - 1, data[1] - 1, data[2]]))
 
 
@@ -122,4 +144,3 @@ print(result_valid)
 # g1.txt has neg cycles
 # g2.txt has neg cycles
 # shortest path for g3.txt is -19
-

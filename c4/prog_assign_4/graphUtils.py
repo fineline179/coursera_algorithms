@@ -74,19 +74,17 @@ class Graph:
     print("Node connections:")
     for i, out_edge_list in enumerate(self.edges):
       out_edge_list_string = ", ".join([str(el) for el in out_edge_list])
-      out_string = "Node {} -> ".format(i) + out_edge_list_string
+      out_string = f"Node {i} -> " + out_edge_list_string
       print(out_string)
 
   def printGraphAttributes(self, print_ft=False, print_leader=False):
     print("Graph attributes:")
     for i in range(self.n):
-      out_string = "Node {}: ".format(i)
-      out_string += "visited = {}".format(self.visited[i])
-      out_string += ", dist = {}".format(self.dist[i])
+      out_string = f"Node {i}: visited = {self.visited[i]}, dist = {self.dist[i]}"
       if print_ft:
-        out_string += ", ft = {}".format(self.ft[i])
+        out_string += f", ft = {self.ft[i]}"
       if print_leader:
-        out_string += ", leader = {}".format(self.leader[i])
+        out_string += f", leader = {self.leader[i]}"
       print(out_string)
 
 
@@ -117,7 +115,7 @@ def bfs(g: Graph, source):
 def bfs_and_print_attributes(g: Graph, source):
   # does bfs and prints resultant node info
   bfs(g, source)
-  print("\nBFS on node {}".format(source))
+  print(f"\nBFS on node {source}")
   g.printGraphAttributes()
 
 

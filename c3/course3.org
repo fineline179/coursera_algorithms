@@ -6,9 +6,12 @@
   - [X] quiz
   - [X] screenshot fully correct quiz
   - [ ] FIND, scan and import notes
-- [ ] C3W4 problem set
-  - [ ] quiz
+- [-] C3W4 problem set
+  - [X] quiz
+  - [ ] screenshot fully correct quiz (at home on 4k screen)
   - [ ] scan and import notes
 - [ ] Final
+  - [ ] screenshot fully correct answers (at home on 4k screen)
+  - [ ] scan and import notes
 
 
