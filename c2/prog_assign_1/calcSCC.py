@@ -1,8 +1,7 @@
 #%% Coursera c2 w1 assignment: Strongly connected components of directed graph
 from graphUtils import *
 
-
-#%% setup and analyze test graph
+# %% setup and analyze test graph
 def run_test():
   dir_edge_list = [
     (0, 3),
@@ -34,7 +33,9 @@ run_test()
 
 
 #%% main data
-with open("./c2/prog_assign_1/SCC.txt", "r") as f:
+with open(
+  "/home/fineline/projects/coursera-algorithms/c2/prog_assign_1/SCC.txt", "r"
+) as f:
   # input data: list with one element per input file line. each element is tuple of
   # numbers on line, with one subtracted from each number (for 0-based node indexing)
   dir_edge_list = [
