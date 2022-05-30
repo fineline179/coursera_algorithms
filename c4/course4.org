@@ -2,4 +2,28 @@
 #+STARTUP: showall latexpreview inlineimages
 
 * TODOs
-- Welp
+- [-] C4W1 problem set
+  - [X] pass
+  - [X] screenshot fully correct quiz (at home on 4k screen)
+  - [ ] scan and import notes
+
+- [ ] C4W2 problem set
+  - [ ] pass
+  - [ ] screenshot fully correct quiz (at home on 4k screen)
+  - [ ] scan and import notes
+
+- [ ] C4W3 problem set
+  - [ ] pass
+  - [ ] screenshot fully correct quiz (at home on 4k screen)
+  - [ ] scan and import notes
+
+- [ ] C4W4 problem set
+  - [ ] pass
+  - [ ] screenshot fully correct quiz (at home on 4k screen)
+  - [ ] scan and import notes
+
+- [ ] C4 Final
+  - [ ] pass
+  - [ ] screenshot fully correct final (at home on 4k screen)
+  - [ ] scan and import notes
+
